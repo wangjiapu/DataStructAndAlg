@@ -1,6 +1,11 @@
 package com.pjw.tree;
 
 
+import sun.reflect.generics.tree.Tree;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class TwoLinkBinTree<E> {
     public static class TreeNode{
         Object data;
@@ -16,6 +21,10 @@ public class TwoLinkBinTree<E> {
             this.data=data;
             this.left=l;
             this.right=r;
+        }
+
+        public Object getData() {
+            return data;
         }
     }
 
@@ -73,4 +82,60 @@ public class TwoLinkBinTree<E> {
     public boolean isEmpty(){
         return root.data == null;
     }
+
+
+    /**
+     * return node's parent
+     * @param node
+     * @return
+     */
+    public TreeNode getParent(TreeNode node){
+        if (node==null)
+            return null;
+        return parent(getRoot(),node);
+    }
+
+    private TreeNode parent(TreeNode root,TreeNode node){
+        if (root==null){
+            return null;
+        }
+        if (root.left==node ||root.right==node)
+            return root;
+        parent(root.left,node);
+        parent(root.right,node);
+        return null;
+    }
+
+
+    public TreeNode rightChild(TreeNode node){
+        if (node==null){
+            throw new RuntimeException("treeNode is null ");
+        }
+        return node.right;
+    }
+    /**
+     * Preorder traversal
+     * @return
+     */
+    public List<TreeNode> preIterator(){
+        if (isEmpty())
+            throw new RuntimeException("tree is null ");
+        return preIterator(getRoot());
+    }
+
+    private List<TreeNode> preIterator(TreeNode node){
+        List<TreeNode> list=new ArrayList<>();
+        list.add(node);
+        if (node.left!=null){
+            list.addAll(preIterator(node.left));
+        }
+        if (node.right!=null){
+            list.addAll(preIterator(node.right));
+        }
+        return list;
+    }
+
+
+
+
 }
