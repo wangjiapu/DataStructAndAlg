@@ -1,4 +1,4 @@
-import 树.TwoLinkBinTree;
+import com.pjw.tree.TwoLinkBinTree;
 
 public class Test {
     public static void main(String[] args) {

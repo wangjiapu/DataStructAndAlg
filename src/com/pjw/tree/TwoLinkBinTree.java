@@ -1,4 +1,4 @@
-package 树;
+package com.pjw.tree;
 
 
 public class TwoLinkBinTree<E> {
