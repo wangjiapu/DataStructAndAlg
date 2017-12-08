@@ -1,4 +1,5 @@
 import com.pjw.tree.TwoLinkBinTree;
+import cpm.pjw.sort.HeapSort;
 import cpm.pjw.sort.InsertSort;
 
 import java.util.List;
@@ -14,7 +15,8 @@ public class Test {
 
     private static void testSort() {
         int[] array = { 3, -1, 0, -8, 2, 1 ,111,854,124,66,66,44,-8,2};
-        InsertSort.sort(array);
+        HeapSort.sort(array);
+       // InsertSort.sort(array);
         printArray(array);
     }
 
