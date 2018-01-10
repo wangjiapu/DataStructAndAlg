@@ -9,7 +9,6 @@ public class QuikSort {
         sort(array,low,index-1);
         sort(array,index+1,hight);
     }
-
     public static int partition(int[] arr,int low,int hight){
         int rand=(int)(Math.random()*(hight-low))+low;
         int key=arr[rand];
@@ -30,6 +29,4 @@ public class QuikSort {
         return hight;
 
     }
-
-
 }
